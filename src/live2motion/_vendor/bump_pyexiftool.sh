@@ -34,3 +34,5 @@ git -C "$TEMP_DIR" fetch --depth 1 origin "$COMMIT_HASH"
 for file in "${FILES[@]}"; do
     git -C "$TEMP_DIR" show "$COMMIT_HASH:$file" > "$DST_DIR/$(basename "$file")"
 done
+
+echo "bumped pyexiftool to $COMMIT_HASH in $DST_DIR"

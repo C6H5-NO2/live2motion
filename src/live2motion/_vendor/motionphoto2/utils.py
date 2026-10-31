@@ -8,7 +8,7 @@ import struct
 from pathlib import Path
 from typing import Dict, Any
 
-import constants as const
+from . import constants as const
 
 
 def extract_track_number(metadata: str) -> str:

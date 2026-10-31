@@ -28,3 +28,14 @@ git -C "$TEMP_DIR" remote add origin "$REPO_URL"
 git -C "$TEMP_DIR" fetch --depth 1 origin "$COMMIT_HASH"
 
 git -C "$TEMP_DIR" archive "$COMMIT_HASH" "${FILES[@]}" | tar -x -C "$DST_DIR"
+
+# fix imports
+sed -i \
+    -e 's/from utils import/from .utils import/' \
+    -e 's/import constants/from . import constants/' \
+    -e 's/from SamsungTags import/from .SamsungTags import/' \
+    "$DST_DIR/Muxer.py"
+sed -i -e 's/import constants/from . import constants/' "$DST_DIR/SamsungTags.py"
+sed -i -e 's/import constants/from . import constants/' "$DST_DIR/utils.py"
+
+echo "bumped motionphoto2 to $COMMIT_HASH in $DST_DIR"

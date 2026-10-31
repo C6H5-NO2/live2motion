@@ -2,7 +2,7 @@ import os
 import sys
 import struct
 
-import constants as const
+from . import constants as const
 
 class SamsungTags:
     
