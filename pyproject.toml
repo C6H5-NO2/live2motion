@@ -1,0 +1,41 @@
+[build-system]
+build-backend = "uv_build"
+requires = [ "uv_build>=0.12,<0.13" ]
+
+[project]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+]
+description = ""
+dynamic = [ "version" ]
+license = "MIT"
+license-files = [ "LICENSE" ]
+name = "live2motion"
+readme = "README.md"
+requires-python = ">=3.14"
+
+[tool.pyrefly]
+preset = "strict"
+project-excludes = [
+  "src/**/_vendor/**",
+]
+
+[tool.pyrefly.errors]
+
+[tool.pyright]
+ignore = [
+  "src/**/_vendor/**",
+]
+
+[tool.ruff]
+extend-exclude = [
+  "src/**/_vendor/**",
+]
+line-length = 320
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.ruff.lint]
+ignore = [
+]
